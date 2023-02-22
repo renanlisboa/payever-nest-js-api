@@ -22,10 +22,9 @@ import { UsersModule } from './modules/users/users.module';
           host: config.get<string>('MAILER_HOST'),
           auth: {
             user: config.get<string>('MAILER_USER'),
-            pass: config.get<string>('MAILER_PASS')
+            pass: config.get<string>('MAILER_PASS'),
           },
-          
-        }
+        },
       }),
     }),
     UsersModule,

@@ -29,10 +29,9 @@ describe('UsersService', () => {
               host: config.get<string>('MAILER_HOST'),
               auth: {
                 user: config.get<string>('MAILER_USER'),
-                pass: config.get<string>('MAILER_PASS')
+                pass: config.get<string>('MAILER_PASS'),
               },
-              
-            }
+            },
           }),
         }),
         ClientsModule.registerAsync([
@@ -46,16 +45,14 @@ describe('UsersService', () => {
                 urls: [configService.get<string>('RABBIT_MQ_URL')],
                 queue: 'main_queue',
                 queueOptions: {
-                  durable: false
-                }
+                  durable: false,
+                },
               },
             }),
-          }
-        ])
+          },
+        ]),
       ],
-      providers: [
-        UsersService
-      ],
+      providers: [UsersService],
     }).compile();
 
     service = module.get<UsersService>(UsersService);
@@ -65,9 +62,9 @@ describe('UsersService', () => {
     const body = {
       name: 'John',
       job: 'Software Engineer',
-    }
+    };
 
-    const user = await service.storeUser(body)
+    const user = await service.storeUser(body);
 
     expect(user.id).not.toBeNull();
     expect(user.name).not.toBeNull();
@@ -76,10 +73,10 @@ describe('UsersService', () => {
 
   it('should get a user by id from external api', async () => {
     const id = '2';
-    
+
     const user = await service.findUserById(id);
-    
+
     expect(user.data).toBeDefined();
     expect(user.data.id).toBe(2);
-  })
+  });
 });

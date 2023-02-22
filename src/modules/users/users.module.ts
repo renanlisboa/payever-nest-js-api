@@ -21,12 +21,12 @@ import { UsersService } from './users.service';
             urls: [configService.get<string>('RABBIT_MQ_URL')],
             queue: 'main_queue',
             queueOptions: {
-              durable: false
-            }
+              durable: false,
+            },
           },
         }),
-      }
-    ])
+      },
+    ]),
   ],
   controllers: [UsersController],
   providers: [UsersService],

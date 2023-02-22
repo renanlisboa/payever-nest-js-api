@@ -1,7 +1,7 @@
 export type UserResquestBody = {
   avatar?: {
-    filename: string
-  },
+    filename: string;
+  };
   name: string;
   job: string;
-}
+};
