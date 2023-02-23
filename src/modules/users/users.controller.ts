@@ -46,7 +46,7 @@ export class UsersController {
     try {
       const user = await this.userservice.findUserById(userId);
       return {
-        statusCode: 201,
+        statusCode: 200,
         user,
       };
     } catch (error) {
@@ -62,7 +62,7 @@ export class UsersController {
     try {
       const avatar = await this.userservice.findAvatarByUserId(userId);
       return {
-        statusCode: 201,
+        statusCode: 200,
         data: { avatar },
       };
     } catch (error) {

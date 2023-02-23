@@ -71,7 +71,7 @@ describe('UsersService', () => {
     expect(user.job).not.toBeNull();
   });
 
-  it('should get a user by id from external api', async () => {
+  it('should get an user by id from external api', async () => {
     const id = '2';
 
     const user = await service.findUserById(id);
